@@ -6,7 +6,6 @@
 # 2.1 Leer el archivo de datos data.txt, y analizar de que estructura de datos se trata.
 # Utilice la función read.table()
 dir <- "C:/Users/Wilson/Desktop/modelos_lineales"
-setwd(dir)
 data<-read.table("data.txt",header=TRUE,dec=',',sep='\t')
 class(data)
 
@@ -50,17 +49,18 @@ clase
 # Recordar que para un factor no es posible obtener la media debido a que 
 # éstos representan variables
 aux1<-logical()
-aux2<-mumeric()
+media_num<-numeric()
 for(i in 1:ncol(data))
 {
-aux[i]<-is.numeric(data[,i])
+aux1[i]<-is.numeric(data[,i])
 }
-new_data<-data[,aux]
+new_data<-data[,aux1]
 for(i in 1:ncol(new_data))
 {
-  w[i]<-mean(new_data[,i],na.rm=TRUE)
+  media_num[i]<-mean(new_data[,i],na.rm=TRUE)
 }
-print(w)
+print(media_num)
+
 # 2.8 Calcular el porcentaje de valores perdidos que contiene cada variable.
 # Utilice la función is.na()
 val_perdido<-numeric()
